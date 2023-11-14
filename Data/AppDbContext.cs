@@ -11,7 +11,7 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        // Ignore todas as advertências sensíveis relacionadas a dados
+
         optionsBuilder
             .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.SensitiveDataLoggingEnabledWarning));
 
@@ -20,13 +20,13 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Configurações adicionais, se necessário
 
-        // Configurar chave primária
+
+
         modelBuilder.Entity<Product>()
             .HasKey(p => p.Id);
 
-        // Exemplo: Configurar nome da tabela
+
         modelBuilder.Entity<Product>()
             .ToTable("Products");
     }

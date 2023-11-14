@@ -3,38 +3,37 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-
 [Route("api/[controller]")]
 [ApiController]
 public class ProductsController : ControllerBase
 {
-    private readonly AppDbContext _dbContext;
+    private readonly ProductService _productService;
 
-    public ProductsController(AppDbContext dbContext)
+    public ProductsController(ProductService productService)
     {
-        _dbContext = dbContext;
+        _productService = productService ?? throw new ArgumentNullException(nameof(productService));
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Product>> Get()
+    public async Task<ActionResult<IEnumerable<Product>>> Get()
     {
         try
         {
-            var products = _dbContext.Products.ToList();
+            var products = await _productService.GetAllProductsAsync();
             return Ok(products);
         }
-        catch (Exception ex)
+        catch (ProductServiceException ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Product> Get(int id)
+    public async Task<ActionResult<Product>> Get(int id)
     {
         try
         {
-            var product = _dbContext.Products.Find(id);
+            var product = await _productService.GetProductByIdAsync(id);
 
             if (product == null)
             {
@@ -43,7 +42,7 @@ public class ProductsController : ControllerBase
 
             return Ok(product);
         }
-        catch (Exception ex)
+        catch (ProductServiceException ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
@@ -54,12 +53,10 @@ public class ProductsController : ControllerBase
     {
         try
         {
-            _dbContext.Products.Add(product);
-            await _dbContext.SaveChangesAsync();
-
+            await _productService.AddProductAsync(product);
             return CreatedAtAction(nameof(Get), new { id = product.Id }, product);
         }
-        catch (Exception ex)
+        catch (ProductServiceException ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
@@ -70,21 +67,10 @@ public class ProductsController : ControllerBase
     {
         try
         {
-            var product = await _dbContext.Products.FindAsync(id);
-
-            if (product == null)
-            {
-                return NotFound("Product not found");
-            }
-
-            product.Name = updatedProduct.Name;
-            product.Price = updatedProduct.Price;
-
-            await _dbContext.SaveChangesAsync();
-
+            await _productService.UpdateProductAsync(id, updatedProduct);
             return NoContent();
         }
-        catch (Exception ex)
+        catch (ProductServiceException ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
@@ -95,19 +81,10 @@ public class ProductsController : ControllerBase
     {
         try
         {
-            var product = await _dbContext.Products.FindAsync(id);
-
-            if (product == null)
-            {
-                return NotFound("Product not found");
-            }
-
-            _dbContext.Products.Remove(product);
-            await _dbContext.SaveChangesAsync();
-
+            await _productService.DeleteProductAsync(id);
             return NoContent();
         }
-        catch (Exception ex)
+        catch (ProductServiceException ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
