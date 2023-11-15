@@ -1,0 +1,10 @@
+/bin/
+/obj/
+/bin-debug/
+/bin-release/
+/node_modules/
+*.tmp
+*.user
+*.suo
+*.vscode/
+*.idea/

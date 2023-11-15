@@ -20,12 +20,14 @@ public class Startup
         services.ConfigureHttpClient();
         services.ConfigureDbContext(connectionString);
 
+
         services.AddSwaggerGen(c =>
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cadastro de Produtos", Version = "v1" });
         });
 
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<RabbitMQService>();
 
 
 
@@ -48,6 +50,10 @@ public class Startup
             endpoints.MapControllers();
         });
     }
+
+    // Startup.cs
+
+
 }
 
 

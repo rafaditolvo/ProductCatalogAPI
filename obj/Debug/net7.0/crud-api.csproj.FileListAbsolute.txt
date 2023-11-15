@@ -316,6 +316,7 @@
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.InMemory.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
@@ -342,6 +343,7 @@
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Moq.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Newtonsoft.Json.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/NuGet.Frameworks.dll
+/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/RabbitMQ.Client.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -462,4 +464,3 @@
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/obj/Debug/net7.0/crud-api.pdb
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/obj/Debug/net7.0/crud-api.genruntimeconfig.cache
 /Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/obj/Debug/net7.0/ref/crud-api.dll
-/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.InMemory.dll

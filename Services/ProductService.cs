@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 public class ProductService
 {
     private readonly IProductRepository _productRepository;
+    private readonly IRabbitMQService _rabbitMQService;
 
-    public ProductService(IProductRepository productRepository)
+    public ProductService(IProductRepository productRepository, IRabbitMQService rabbitMQService)
     {
         _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
+        _rabbitMQService = rabbitMQService ?? throw new ArgumentNullException(nameof(rabbitMQService));
     }
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()
@@ -47,6 +49,9 @@ public class ProductService
         try
         {
             await _productRepository.AddAsync(product);
+
+
+            _rabbitMQService.SendMessage($"Novo produto adicionado: {product.Name}");
         }
         catch (Exception ex)
         {
@@ -93,4 +98,3 @@ public class ProductServiceException : Exception
     {
     }
 }
-

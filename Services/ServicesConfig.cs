@@ -10,12 +10,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 public static class ServicesConfig
 {
-  
+
     public static void ConfigureControllers(this IServiceCollection services)
     {
-        
+
         services.AddControllers();
-        
+
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
@@ -23,13 +23,13 @@ public static class ServicesConfig
         });
     }
 
-    // Configuração do cliente HTTP
+
     public static void ConfigureHttpClient(this IServiceCollection services)
     {
-     
+
         services.AddHttpClient("HttpClient").ConfigurePrimaryHttpMessageHandler(() =>
         {
-           
+
             return new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true
@@ -37,12 +37,12 @@ public static class ServicesConfig
         });
     }
 
-   
-   public static void ConfigureDbContext(this IServiceCollection services, string? connectionString)
+
+    public static void ConfigureDbContext(this IServiceCollection services, string? connectionString)
     {
         services.AddDbContext<AppDbContext>(options =>
         {
-          
+
             options.UseSqlServer(connectionString, sqlServerOptionsAction: sqlOptions =>
             {
                 sqlOptions.EnableRetryOnFailure(
@@ -53,18 +53,18 @@ public static class ServicesConfig
         });
     }
 
-    
+
     public static void ConfigureCertificateValidationCallback()
     {
-       
+
         ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) =>
         {
-          
+
             if (sslPolicyErrors == SslPolicyErrors.None)
                 return true;
 
 
-            
+
             return false;
         };
     }
