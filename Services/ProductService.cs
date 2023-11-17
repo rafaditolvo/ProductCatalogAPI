@@ -15,9 +15,13 @@ public class ProductService
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()
     {
+
+
         try
         {
             return await _productRepository.GetAllAsync();
+
+
         }
         catch (Exception ex)
         {
@@ -50,7 +54,6 @@ public class ProductService
         {
             await _productRepository.AddAsync(product);
 
-
             _rabbitMQService.SendMessage($"Novo produto adicionado: {product.Name}");
         }
         catch (Exception ex)
@@ -81,6 +84,12 @@ public class ProductService
         {
             throw new ProductServiceException("Erro ao excluir o produto", ex);
         }
+    }
+
+    // Novo método para obter o serviço RabbitMQ
+    public IRabbitMQService GetRabbitMQService()
+    {
+        return _rabbitMQService;
     }
 }
 

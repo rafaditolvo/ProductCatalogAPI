@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  sql-server-container:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: "1q2w3e4r@#$"
+      MSSQL_PID: Express
+      
+      SQLCMD: -d master -U sa -P "1q2w3e4r@#$" -i /usr/src/app/init.sql
+    ports:
+      - "1433:1433"
+    container_name: sql-server-container
+    networks:
+      - productcatalogapi_network
+    volumes:
+      - ./init.sql:/usr/src/app/init.sql
+
+  rabbitmq-container:
+    image: "rabbitmq:management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - productcatalogapi_network
+
+networks:
+  productcatalogapi_network:
+    driver: bridge

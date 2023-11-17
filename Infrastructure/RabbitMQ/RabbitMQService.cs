@@ -28,4 +28,9 @@ public class RabbitMQService : IRabbitMQService
 
         _channel.BasicPublish(exchange: "", routingKey: "novos_produtos", basicProperties: null, body: body);
     }
+
+    public bool IsRabbitMQConnected()
+    {
+        return _connection != null && _connection.IsOpen && _channel != null;
+    }
 }
