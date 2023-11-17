@@ -19,13 +19,16 @@ public class ProductsController : ControllerBase
     {
         try
         {
+            //Respeitar padrao de nomeclatura de metodos deveria ser CheckRabbitMqConnection
             CheckRabbitMQConnection();
 
             var products = await _productService.GetAllProductsAsync();
             return Ok(products);
         }
+        //Boa separaçao de exceçoes
         catch (RabbitMQNotConnectedException ex)
         {
+            //Evitar interpolacao em logs, isso pode zoar os provedores de log
             return StatusCode(503, $"Service Unavailable: RabbitMQ not connected - {ex.Message}");
         }
         catch (ProductServiceException ex)
@@ -120,6 +123,7 @@ public class ProductsController : ControllerBase
         }
     }
 
+    //Deveria ser um metodo de extensao estatico para ser utilizado em mais controllers(ou ate mesmo um middleware) novamente por ser demo ta ok mas uma boa pratica seria isso
     private void CheckRabbitMQConnection()
     {
         var rabbitMQService = _productService.GetRabbitMQService();

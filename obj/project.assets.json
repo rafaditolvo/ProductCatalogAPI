@@ -10182,19 +10182,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/rafael/.nuget/packages/": {}
+    "/Users/ypedro/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rafael/Desktop/Test/ProductCatalogAPI/crud-api.csproj",
+      "projectUniqueName": "/Users/ypedro/dev/ProductCatalogAPI/crud-api.csproj",
       "projectName": "crud-api",
-      "projectPath": "/Users/rafael/Desktop/Test/ProductCatalogAPI/crud-api.csproj",
-      "packagesPath": "/Users/rafael/.nuget/packages/",
-      "outputPath": "/Users/rafael/Desktop/Test/ProductCatalogAPI/obj/",
+      "projectPath": "/Users/ypedro/dev/ProductCatalogAPI/crud-api.csproj",
+      "packagesPath": "/Users/ypedro/.nuget/packages/",
+      "outputPath": "/Users/ypedro/dev/ProductCatalogAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/rafael/.nuget/NuGet/NuGet.Config"
+        "/Users/ypedro/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -10294,6 +10294,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -10302,7 +10316,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.403/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -15,7 +15,7 @@ public class ProductService
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()
     {
-
+//Muito espaco utilizar ferramentas de refatoraçao para melhorar a legibilidade, nada demais tambem so uma dica
 
         try
         {
@@ -64,6 +64,7 @@ public class ProductService
 
     public async Task UpdateProductAsync(int id, Product updatedProduct)
     {
+        //evitar parametros desnecessarios id nao esta sendo usado
         try
         {
             await _productRepository.UpdateAsync(updatedProduct);
@@ -87,12 +88,14 @@ public class ProductService
     }
 
     // Novo método para obter o serviço RabbitMQ
+    //deveria estar injetado
     public IRabbitMQService GetRabbitMQService()
     {
         return _rabbitMQService;
     }
 }
 
+//Boa solucao mas poderia ser melhorada, acredito que o ideal seria criar uma classe base para as exceptions utilizar ela, assim voce poderia tratar todas as exceptions de uma vez so
 public class ProductServiceException : Exception
 {
     public ProductServiceException()
