@@ -1,7 +1,5 @@
 using Xunit;
 using Moq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 public class ProductServiceTests
 {
@@ -61,4 +59,45 @@ public class ProductServiceTests
         mockRepository.Verify(repo => repo.AddAsync(It.IsAny<Product>()), Times.Once);
         mockRabbitMQService.Verify(rabbitMQ => rabbitMQ.SendMessage(It.IsAny<string>()), Times.AtLeastOnce);
     }
+
+    [Fact]
+    public async Task UpdateProductAsync_ShouldUpdateProduct()
+    {
+
+        var mockRepository = new Mock<IProductRepository>();
+        var mockRabbitMQService = new Mock<IRabbitMQService>();
+        mockRabbitMQService.Setup(rabbitMQ => rabbitMQ.IsRabbitMQConnected())
+                           .Returns(true);
+
+        var productService = new ProductService(mockRepository.Object, mockRabbitMQService.Object);
+
+        var productId = 1;
+        var updatedProduct = new Product { Id = productId, Name = "UpdatedProduct" };
+
+
+        await productService.UpdateProductAsync(productId, updatedProduct);
+
+
+        mockRepository.Verify(repo => repo.UpdateAsync(updatedProduct), Times.Once);
+    }
+
+    [Fact]
+    public async Task DeleteProductAsync_ShouldDeleteProduct()
+    {
+
+        var mockRepository = new Mock<IProductRepository>();
+        var mockRabbitMQService = new Mock<IRabbitMQService>();
+        mockRabbitMQService.Setup(rabbitMQ => rabbitMQ.IsRabbitMQConnected())
+                           .Returns(true);
+
+        var productService = new ProductService(mockRepository.Object, mockRabbitMQService.Object);
+
+        var productId = 1;
+
+        await productService.DeleteProductAsync(productId);
+
+
+        mockRepository.Verify(repo => repo.DeleteAsync(productId), Times.Once);
+    }
+
 }
