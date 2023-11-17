@@ -14,6 +14,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Poderia usar minimal APIs tambem mas nao e um problema, so uma sugestao
         var builder = WebApplication.CreateBuilder(args);
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "DefaultFallbackConnection";
 
@@ -23,6 +24,7 @@ class Program
 
         ConfigureCertificateValidationCallback();
 
+        //Ideal mover para uma classe de container de dependencias para nao poluir o main, e evitar que o main fique muito grande
         builder.Services.AddScoped<IRabbitMQService, RabbitMQService>();
         builder.Services.AddScoped<IProductRepository, ProductRepository>();
         builder.Services.AddScoped<ProductService>();

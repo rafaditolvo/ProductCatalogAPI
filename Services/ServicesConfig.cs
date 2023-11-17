@@ -1,5 +1,5 @@
 // ServicesConfig.cs
-
+//remover usings nao utilizados
 using System;
 using System.Net;
 using System.Net.Http;

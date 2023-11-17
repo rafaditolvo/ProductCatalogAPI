@@ -15,6 +15,7 @@ A `ProductCatalogAPI` é um CRUD (Create, Read, Update, Delete) desenvolvido esp
 
 A API suporta as seguintes operações CRUD:
 
+[//]: # (AQUI so um toque tu pode ter isso com um arquivo de postman ai tu publica a api e o swagger ou o postman e o arquivo de postman vao disponibilizar essas informacoes) 
 - **Create**: Adiciona um novo produto ao catálogo.
 - **Read**: Recupera informações sobre produtos existentes.
 - **Update**: Atualiza os detalhes de um produto existente.
