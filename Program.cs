@@ -50,7 +50,7 @@ class Program
         app.Run();
     }
 
-    // Lógica de validação de certificado personalizada
+   
     private static void ConfigureCertificateValidationCallback()
     {
         ServicePointManager.ServerCertificateValidationCallback += ValidateCertificate;
@@ -58,8 +58,7 @@ class Program
 
     private static bool ValidateCertificate(object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors)
     {
-        // Adicione sua lógica de validação de certificado aqui
-        // Por padrão, estamos aceitando todos os certificados (inseguro)
+        
         return true;
     }
 }

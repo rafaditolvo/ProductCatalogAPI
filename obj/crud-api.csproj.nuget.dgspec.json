@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/crud-api.csproj": {}
+    "/Users/rafael/Desktop/Test/ProductCatalogAPI/crud-api.csproj": {}
   },
   "projects": {
-    "/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/crud-api.csproj": {
+    "/Users/rafael/Desktop/Test/ProductCatalogAPI/crud-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/crud-api.csproj",
+        "projectUniqueName": "/Users/rafael/Desktop/Test/ProductCatalogAPI/crud-api.csproj",
         "projectName": "crud-api",
-        "projectPath": "/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/crud-api.csproj",
+        "projectPath": "/Users/rafael/Desktop/Test/ProductCatalogAPI/crud-api.csproj",
         "packagesPath": "/Users/rafael/.nuget/packages/",
-        "outputPath": "/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/obj/",
+        "outputPath": "/Users/rafael/Desktop/Test/ProductCatalogAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/rafael/.nuget/NuGet/NuGet.Config"

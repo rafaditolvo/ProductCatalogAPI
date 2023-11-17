@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rUXt7hG9zjc4Cw/MHwiDSPrFj21mLjWBj4cvHOxh/Pf4181Z8znk+cn0wBECFMpNfRWAVpAuAlEnHf7k1FJsLw==",
+  "dgSpecHash": "XNyyevN1KpFQNduhLQaSa0mwRBjZtLrv3jRenaHu0DzIWwdAgqXFVPp8U//vO5BDQsuvw7rfGb6+LwLadNpnXg==",
   "success": true,
-  "projectFilePath": "/Volumes/Storage/Desenvolvimento/C#/ProductCatalogAPI/crud-api.csproj",
+  "projectFilePath": "/Users/rafael/Desktop/Test/ProductCatalogAPI/crud-api.csproj",
   "expectedPackageFiles": [
     "/Users/rafael/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/rafael/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
