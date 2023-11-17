@@ -25,19 +25,23 @@ A API suporta as seguintes operações CRUD:
 
 Certifique-se de ter o Docker instalado em sua máquina. Para iniciar a aplicação e configurar o ambiente, siga os passos abaixo:
 
+1. Baixe imagem do SQL Server:
 
-1. Execute o seguinte comando para subir os serviços necessários usando Docker Compose:
+   ```bash
+   docker pull mcr.microsoft.com/mssql/server
+   
+2. Execute o seguinte comando para subir os serviços necessários usando Docker Compose:
 
    ```bash
    docker-compose up -d
    
-2. Após a conclusão da inicialização dos contêineres, execute os seguintes comandos para compilar e executar a aplicação:
+3. Após a conclusão da inicialização dos contêineres, execute os seguintes comandos para compilar e executar a aplicação:
 
    ```bash
    dotnet build
    dotnet run 
 
-3. Execução de Testes Unitários
+4. Execução de Testes Unitários
 
    ```bash
    dotnet test
